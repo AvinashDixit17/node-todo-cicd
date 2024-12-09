@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    image: node:16
+    container_name: node-todo-app
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: npm install && npm start
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
